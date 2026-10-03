@@ -1,0 +1,14 @@
+{
+  "version": "0.9.11",
+  "runtimeBuild": "2026-10-03-account-hardening-v1",
+  "base": "0.9.10",
+  "changes": ["prefer_active_pairing_over_reused_historical_code", "read_only_pending_pairing_poll", "coalesce_in_flight_OTP_requests", "allow_PATCH_preflight_for_local_Mac_app_only", "pin_patched_upload_and_query_parsers"],
+  "validation": {"releaseTestsPassed": 53, "releaseTestsFailed": 0, "mainWorkspaceTestsPassed": 158, "mainWorkspaceTestsFailed": 0, "npmProductionAuditVulnerabilities": 0, "realEmailReceipt": "confirmed_by_owner", "realPhoneLogin": "not_yet_verified"},
+  "buildCommand": "tar -xzf travel-bill-source-0.9.11.tar.gz && npm ci",
+  "rollbackBuildCommand": "tar -xzf travel-bill-source-0.9.10.tar.gz && npm install",
+  "databaseMigration": false,
+  "environmentChanges": false,
+  "secretsChanged": false,
+  "archiveContainsUserData": false,
+  "securityReferences": ["https://github.com/expressjs/multer/security/advisories/GHSA-3pph-fpjx-jg34", "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g"]
+}
