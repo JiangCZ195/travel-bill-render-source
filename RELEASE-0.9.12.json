@@ -1,0 +1,13 @@
+{
+  "version": "0.9.12",
+  "runtimeBuild": "2026-10-04-name-binding-v1",
+  "base": "0.9.11",
+  "changes": ["OTP login ignores submitted names", "authenticated idempotent first-login name binding", "legacy names preserved", "concurrent binding cannot overwrite saved names", "no new SMS provider"],
+  "validation": {"releaseTestsPassed": 56, "releaseTestsFailed": 0, "macNameBindingTestsPassed": 5, "iosBuild": 22, "nativeCoreChecks": "passed"},
+  "buildCommand": "tar -xzf travel-bill-source-0.9.12.tar.gz && npm ci",
+  "rollbackBuildCommand": "tar -xzf travel-bill-source-0.9.11.tar.gz && npm ci",
+  "databaseMigration": "Additive nameBound flag on newly created or explicitly bound accounts; no bulk rewrite",
+  "environmentChanges": false,
+  "secretsChanged": false,
+  "archiveContainsUserData": false
+}
