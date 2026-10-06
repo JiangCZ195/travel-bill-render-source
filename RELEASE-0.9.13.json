@@ -1,0 +1,35 @@
+{
+  "version": "0.9.13",
+  "runtimeBuild": "2026-10-07-bandwidth-noop-v1",
+  "base": "0.9.12",
+  "baseCommit": "2f317ee511234ef3cd843dc5ff358fbae89334c7",
+  "changes": [
+    "Skip cloud snapshot uploads when actual account state is unchanged",
+    "Empty chat polling performs no cleanup write or encryption",
+    "Concurrent expiry cleanup is single-flight and queued with real changes",
+    "Duplicate message receipts do not update timestamps or rewrite state",
+    "Authorize chat reads before performing expiration cleanup",
+    "Expire orphan temporary relay media without touching avatars or trip covers",
+    "Deny expired temporary relay media access before a cleanup is triggered"
+  ],
+  "validation": {
+    "releaseTestsPassed": 67,
+    "releaseTestsFailed": 0,
+    "newBandwidthTestsPassed": 11,
+    "fixtureExternalRequests": 0,
+    "idleChatReads": 250,
+    "idleChatSnapshotUploads": 0,
+    "simultaneousExpiryReads": 50,
+    "simultaneousExpirySnapshotUploads": 1,
+    "scopeComparedToDeployedBaseline": "passed; 5 changed or added files only"
+  },
+  "buildCommand": "tar -xzf travel-bill-source-0.9.13.tar.gz && npm ci",
+  "rollbackBuildCommand": "tar -xzf travel-bill-source-0.9.12.tar.gz && npm ci",
+  "rollbackWarning": "0.9.12 has the known idle polling bandwidth defect; do not resume it as a bandwidth recovery",
+  "databaseMigration": false,
+  "environmentChanges": false,
+  "secretsChanged": false,
+  "archiveContainsUserData": false,
+  "archiveSHA256": "0e26cb56fc673ce0e5aaf4317c937ab3b7f0fcd63112bc8f0f3c83779a6af10f",
+  "operationalNote": "Code does not reset already consumed Render quota. Workspace was suspended at preparation; live health and phone OTP must be checked after quota is restored."
+}
